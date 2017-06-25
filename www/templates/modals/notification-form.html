@@ -1,0 +1,55 @@
+<ion-modal-view ng-controller="notificationFormCtrl">
+  <header class="bar bar-header bar-ligth">
+    <h1 class="title">{{'notificationForm' | translate}}</h1>
+    <div class="buttons">
+      <button class="button button-dark" ng-click="closeModaNotificationForm()">{{'close' | translate}}</button>
+    </div>  
+    <div class="bar bar-subheader bar-assertive" ng-show="erroR.active">
+      <h1 class="title">{{erroR.message | translate}}</h1>
+    </div>
+  </header>
+  <ion-content class="has-header">
+
+    <form ng-submit="createNotification()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">{{'coin' | translate}}</span>{{coin.Name}}
+        </label>
+
+        <label class="item">
+          <span class="input-label">{{'notificationText' | translate}}</span>
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            {{'price' | translate}}
+          </div>
+          <select ng-model="notification.operator" ng-options="operator as operator.symbol for operator in operators" ng-change="resetError();">
+          </select>
+          {{notification.operator.name}}
+        </label>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            {{'coin' | translate}}
+          </div>
+          <select ng-model="notification.price" ng-options="key for (key, value) in coin.Prices" ng-change="notificationCurrencyChange(notification.price);resetError()">
+          </select>
+        </label>
+
+
+        <label class="item item-input">
+          <span class="input-label">{{'value' | translate}}</span>
+          <input type="number" ng-model="notification.price"  step="any" ng-change="resetError();">
+        </label>
+
+
+
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">{{'setUpNotification' | translate}}</button>
+        </label>
+      </div>
+    </form>
+    
+  </ion-content>
+</ion-modal-view>
