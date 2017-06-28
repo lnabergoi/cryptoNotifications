@@ -1,0 +1,28 @@
+<ion-view view-title="{{'notifications' | translate}} " cache-view="false">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar item-icon-right item-divider" ng-repeat=" coin in notificationGroupByCoin" type="item-text-wrap" ng-init="coinIndex = $index">
+        <img ng-src="{{mediaUrl}}{{coin.coin.ImageUrl}}">
+        <h2>{{coin.coin.FullName}}</h2>
+        <p>{{'TotalCoinSupply' | translate}} : {{coin.coin.TotalCoinSupply}}</p>
+
+        <ion-item class="item-icon-left item-remove-animate  item-icon-right" ng-repeat="notification in coin.notifications" type="item-text-wrap" ng-init="notificationIndex = $index">
+          <i class="icon  assertive ion-arrow-down-a " ng-show="'{{notification.operator.symbol}}'==='<'"></i>
+          <i class="icon   balanced ion-arrow-up-a "  ng-show="'{{notification.operator.symbol}}'==='>'"></i>
+          <p>{{'price' | translate}}  {{notification.operator.symbol}} {{notification.price}} {{notification.currency}}</p>
+
+          <i class="icon ion-chevron-right icon-accessory"></i>
+          <ion-option-button class="button-assertive" ng-click="removeNotification(coinIndex, notificationIndex)">
+            {{'delete' | translate}} 
+          </ion-option-button>
+        
+        </ion-item>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

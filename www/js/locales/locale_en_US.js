@@ -17,7 +17,9 @@
       value:'Value',
       price:'Price',
       choseACurrency: 'Choose a currecy',
-      refreshText:'Pull to refresh...'
+      refreshText:'Pull to refresh...',
+      setup:'Setup',
+      notifications:'Allerts'
  
     });
 

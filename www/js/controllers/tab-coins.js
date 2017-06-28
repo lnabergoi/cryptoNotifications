@@ -1,8 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
 
-.controller('CoinsCtrl', function($scope, Chats, CoinList,CoinListCache, GlobalConstant, $ionicFilterBar) {
+.controller('CoinsCtrl', function($scope, $ionicFilterBar, Chats, CoinList,CoinListCache, GlobalConstant) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -20,7 +19,7 @@ angular.module('starter.controllers', [])
     CoinList.queryAll({}, function(data){
       CoinListCache.setList(data.Data);
       $scope.coins=_.valuesIn(data.Data);
-    });
+    })
   };
 
   $scope.CoinDettails = function(){

@@ -9,12 +9,18 @@
       on-refresh="doRefresh()">
    </ion-refresher>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="coin in coins" type="item-text-wrap" href="#/tab/coins/{{coin.Id}}">
+      <ion-item class="item-remove-animate item-avatar item-icon-right  item-divider" ng-repeat="coin in coins" type="item-text-wrap" href="#/tab/coins/{{coin.Id}}">
         <img ng-src="{{mediaUrl}}{{coin.ImageUrl}}">
         <h2>{{coin.FullName}}</h2>
         <p>{{'TotalCoinSupply' | translate}} : {{coin.TotalCoinSupply}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-
+          <a class="item item-icon-left" href="#" ng-repeat=>
+            <i class="icon ion-mic-a"></i>
+            Record album
+             <span class="item-note">
+                Grammy
+                </span>
+          </a>
         <!--<ion-option-button class="button-assertive" ng-click="remove(chat)">
           Delete
         </ion-option-button>-->

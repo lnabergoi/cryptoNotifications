@@ -17,8 +17,9 @@
       value:'Valor',
       price:'Precio',
       choseACurrency: 'Elige una moneda',
-      refreshText:'Arrastra para refrescar ...'
-
+      refreshText:'Arrastra para refrescar ...',
+      setup:'Ajustes',
+      notifications:'Notificaciones'
  
     });
 
